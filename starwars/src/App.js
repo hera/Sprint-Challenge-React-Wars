@@ -4,16 +4,15 @@ import axios from 'axios';
 import Character from './components/Character';
 
 const App = () => {
-    let [warsData, setWarsData] = useState(null);
+    let [warsData, setWarsData] = useState([]);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8080/data.json')
+        axios.get(`https://swapi.py4e.com/api/people/`)
             .then((response) => {
-                setWarsData(response.data);
+                setWarsData(response.data.results);
             })
             .catch((error) => console.log(error));
-        setWarsData()
-    }, [])
+    }, []);
 
     if (warsData) {
         return (
