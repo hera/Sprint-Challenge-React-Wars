@@ -17,14 +17,16 @@ const App = () => {
 
     if (warsData) {
         return (
+            <>
+            <h1>Star Wars Characters</h1>
             <div className="App">
-                <h1 className="Header">Characters</h1>
                 {
                     warsData.map((character, key) => (
                         <Character characterData={character} key={key} />
                     ))
                 }
             </div>
+            </>
         );
     } else {
         return (
